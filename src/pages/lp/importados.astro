@@ -1,0 +1,236 @@
+---
+import LayoutLP from "../../layouts/LayoutLP.astro"
+import CTAWhatsApp from "../../components/CTAWhatsApp.astro"
+---
+
+<LayoutLP
+  title="Revisão de Carros Importados em Campo Bom/RS | Audi, BMW, Mercedes, Volvo | RS Motorsport"
+  description="Especialistas em revisão e manutenção de carros importados em Campo Bom e região. Audi, BMW, Mercedes-Benz, Volvo e muito mais. Diagnóstico eletrônico original. Agende pelo WhatsApp."
+>
+  <!-- HEADER -->
+  <header class="flex items-center justify-center py-4 px-6 border-b border-white/5 bg-[#0A0A0A]">
+    <img
+      src="/logotipo/RS-2Logo.webp"
+      alt="RS Motorsport"
+      width="140"
+      height="48"
+      loading="eager"
+      class="h-10 w-auto"
+    />
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-[#0A0A0A] px-5 pt-10 pb-12 md:pt-16 md:pb-20">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#E01010]/10 via-transparent to-transparent pointer-events-none"></div>
+    <div class="relative max-w-2xl mx-auto text-center">
+      <p class="inline-block bg-[#E01010]/10 text-[#E01010] text-xs font-heading font-semibold uppercase tracking-widest px-3 py-1 rounded mb-5">
+        Especialistas em Importados · Campo Bom e Região
+      </p>
+      <h1 class="font-heading text-4xl md:text-5xl font-bold leading-tight mb-4 text-[#F5F5F5]">
+        Revisão de Importados<br />
+        <span class="text-[#E01010]">com Quem Entende</span>
+      </h1>
+      <p class="text-[#888888] text-lg mb-6 max-w-lg mx-auto leading-relaxed">
+        Audi, BMW, Mercedes-Benz, Volvo e demais marcas premium. Diagnóstico com scanner original da marca, peças de qualidade e atendimento especializado sem o preço da concessionária.
+      </p>
+      <!-- Marcas -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
+        {["Audi", "BMW", "Mercedes-Benz", "Volvo", "Land Rover", "Porsche", "Volkswagen (VW)"].map((marca) => (
+          <span class="bg-[#1E1E1E] border border-white/10 text-[#F5F5F5]/70 text-xs font-heading uppercase tracking-wider px-3 py-1.5 rounded">
+            {marca}
+          </span>
+        ))}
+      </div>
+      <CTAWhatsApp
+        mensagem="Olá! Tenho um carro importado e quero agendar uma revisão na RS Motorsport."
+        texto="Agendar Revisão do Importado"
+        tamanho="lg"
+        full
+      />
+      <p class="text-[#888888] text-xs mt-3">Diagnóstico original da marca · Peças com garantia</p>
+    </div>
+  </section>
+
+  <!-- POR QUE ESCOLHER -->
+  <section class="bg-[#141414] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-3 text-[#F5F5F5]">
+        Por que não levar à concessionária?
+      </h2>
+      <p class="text-[#888888] text-center text-sm mb-8 max-w-lg mx-auto">
+        A concessionária tem qualidade — mas cobra por isso. Na RS Motorsport você tem o mesmo padrão técnico com mais atenção ao seu carro e sem a burocracia.
+      </p>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {[
+          { icone: "🔌", titulo: "Scanner Original da Marca", desc: "Utilizamos ferramentas de diagnóstico específicas para cada fabricante — lemos erros que scanners genéricos não detectam." },
+          { icone: "🧰", titulo: "Mecânicos Especializados", desc: "Equipe com experiência comprovada em importados europeus e americanos de todas as marcas." },
+          { icone: "📦", titulo: "Peças OEM e de Primeira Linha", desc: "Trabalhamos com peças originais e equivalentes de qualidade idêntica — com nota fiscal e garantia." },
+          { icone: "💰", titulo: "Preço Justo", desc: "Mão de obra especializada sem o markup das concessionárias. Transparência total no orçamento." },
+          { icone: "📋", titulo: "Histórico do Veículo", desc: "Mantemos o registro de cada serviço realizado para facilitar a manutenção e valorizar o seu veículo." },
+          { icone: "⚡", titulo: "Atendimento Ágil", desc: "Sem burocracia, sem fila de espera de semanas. Agenda rápida e comunicação direta pelo WhatsApp." },
+        ].map(({ icone, titulo, desc }) => (
+          <div class="bg-[#1E1E1E] border border-white/5 rounded-lg p-5 flex gap-4">
+            <span class="text-2xl shrink-0">{icone}</span>
+            <div>
+              <h3 class="font-heading font-semibold text-[#F5F5F5] mb-1">{titulo}</h3>
+              <p class="text-[#888888] text-sm leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="bg-[#0A0A0A] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-10 text-[#F5F5F5]">
+        O que fazemos nos importados
+      </h2>
+      <div class="space-y-4">
+        {[
+          {
+            nome: "Revisão Programada (Intervalos do Fabricante)",
+            desc: "Seguimos rigorosamente o intervalo de manutenção recomendado pelo fabricante. Troca de óleo com lubrificante correto para o motor, filtros, fluidos, correias e verificação completa dos sistemas."
+          },
+          {
+            nome: "Diagnóstico Eletrônico Avançado",
+            desc: "Leitura de todos os módulos do veículo com scanner original. Identificamos falhas em ABS, airbag, transmissão, suspensão eletrônica, motor e muito mais — antes de virar problema sério."
+          },
+          {
+            nome: "Manutenção de Freios e Suspensão",
+            desc: "Substituição de discos, pastilhas, amortecedores e componentes de suspensão com peças equivalentes às originais. Alinhamento e balanceamento incluídos."
+          },
+          {
+            nome: "Câmbio Automático e DCT",
+            desc: "Manutenção especializada em câmbios automáticos tradicionais, DSG/S-tronic (dupla embreagem) e variadores CVT — exige conhecimento e equipamento específico."
+          },
+          {
+            nome: "Reparo de Módulos e Codificação",
+            desc: "Substituição e codificação de módulos eletrônicos (ECU, TCU, módulo de conforto). Realizamos o retrofit e adaptação de peças conforme o VIN do veículo."
+          },
+        ].map(({ nome, desc }) => (
+          <div class="bg-[#141414] border border-white/5 rounded-xl p-5">
+            <h3 class="font-heading font-semibold text-[#F5F5F5] mb-2">{nome}</h3>
+            <p class="text-[#888888] text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA MID -->
+  <section class="bg-[#E01010] px-5 py-10 md:py-14">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">
+        Seu importado merece cuidado especializado
+      </h2>
+      <p class="text-white/80 mb-7 text-sm leading-relaxed">
+        Fale agora com nossa equipe e agende a revisão do seu veículo. Atendemos de segunda a sexta, das 08h às 18h.
+      </p>
+      <a
+        href={`https://wa.me/555135972593?text=${encodeURIComponent("Olá! Tenho um carro importado e quero agendar uma revisão na RS Motorsport.")}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2.5 bg-white text-[#E01010] font-heading font-semibold uppercase tracking-wide px-9 py-4 text-lg rounded transition-all duration-200 hover:bg-[#F5F5F5] active:scale-95 w-full shadow-lg"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 shrink-0">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Agendar Revisão do Importado
+      </a>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="bg-[#141414] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-2 text-[#F5F5F5]">
+        Donos de importados confiam na RS
+      </h2>
+      <p class="text-[#888888] text-center text-sm mb-10">Resultados reais de quem trouxe o carro até nós</p>
+      <div class="space-y-4">
+        {[
+          { nome: "Marcos V.", texto: "Tenho um Audi A5 e estava pagando muito caro na concessionária. Vim até a RS Motorsport e o padrão de serviço é o mesmo — pelo menos 30% mais barato. Virei cliente fixo.", cargo: "Audi A5 2.0T · Cliente desde 2022" },
+          { nome: "Cristiane B.", texto: "Meu BMW X1 tinha uma luz acesa no painel que já tinha ido a duas oficinas sem solução. Na RS identificaram e resolveram no diagnóstico. Finalmente o carro ficou 100%.", cargo: "BMW X1 · Diagnóstico Eletrônico" },
+          { nome: "Rodrigo A.", texto: "Meu Volvo XC60 estava com problema na transmissão automática. Lugar difícil de encontrar especialista. A RS tem o equipamento certo e a experiência necessária. Carro funcionando perfeitamente.", cargo: "Volvo XC60 · Câmbio Automático" },
+        ].map(({ nome, texto, cargo }) => (
+          <div class="bg-[#1E1E1E] border border-white/5 rounded-xl p-6">
+            <div class="flex gap-1 mb-3">
+              {Array(5).fill(0).map(() => <span class="text-[#E01010] text-sm">★</span>)}
+            </div>
+            <p class="text-[#F5F5F5]/80 text-sm leading-relaxed mb-4">"{texto}"</p>
+            <div>
+              <p class="font-heading font-semibold text-[#F5F5F5] text-sm">{nome}</p>
+              <p class="text-[#888888] text-xs">{cargo}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section class="bg-[#0A0A0A] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-10 text-[#F5F5F5]">
+        Onde Estamos
+      </h2>
+      <div class="bg-[#141414] border border-white/5 rounded-xl overflow-hidden">
+        <iframe
+          src="https://maps.google.com/maps?q=-29.6728914,-51.0601064&hl=pt-BR&z=16&output=embed"
+          width="100%"
+          height="200"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full"
+          title="Localização RS Motorsport"
+        ></iframe>
+        <div class="p-5 space-y-3">
+          <div class="flex items-start gap-3">
+            <span class="text-[#E01010] text-lg shrink-0">📍</span>
+            <div>
+              <p class="font-heading font-semibold text-[#F5F5F5]">Endereço</p>
+              <p class="text-[#888888] text-sm">R. Emilio Pedro Goedtel, 75 — Bairro Metzler<br />Campo Bom / RS — CEP 93717-145</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-[#E01010] text-lg shrink-0">🕐</span>
+            <div>
+              <p class="font-heading font-semibold text-[#F5F5F5]">Horário de Funcionamento</p>
+              <p class="text-[#888888] text-sm">Segunda a Sexta — 08h às 18h</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-[#141414] border-t border-white/5 px-5 py-12 md:py-16">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-[#F5F5F5] mb-3">
+        Agende a revisão do seu importado
+      </h2>
+      <p class="text-[#888888] mb-7 text-sm leading-relaxed">
+        Fale agora com a nossa equipe. Resposta rápida garantida.
+      </p>
+      <CTAWhatsApp
+        mensagem="Olá! Tenho um carro importado e quero agendar uma revisão na RS Motorsport."
+        texto="Agendar pelo WhatsApp"
+        tamanho="lg"
+        full
+      />
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0A0A0A] border-t border-white/5 px-5 py-6 text-center">
+    <p class="text-[#888888] text-xs">
+      © {new Date().getFullYear()} RS Motorsport — Todos os direitos reservados<br />
+      R. Emilio Pedro Goedtel, 75 — Campo Bom/RS
+    </p>
+  </footer>
+</LayoutLP>

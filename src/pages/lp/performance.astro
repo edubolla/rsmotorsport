@@ -1,0 +1,239 @@
+---
+import LayoutLP from "../../layouts/LayoutLP.astro"
+import CTAWhatsApp from "../../components/CTAWhatsApp.astro"
+---
+
+<LayoutLP
+  title="Performance e Remap de Motor em Campo Bom/RS | RS Motorsport"
+  description="Remap de motor, preparação de performance e otimização de injeção eletrônica em Campo Bom e região. Mais potência, melhor resposta, sem abrir mão da confiabilidade."
+>
+  <!-- HEADER -->
+  <header class="flex items-center justify-center py-4 px-6 border-b border-white/5 bg-[#0A0A0A]">
+    <img
+      src="/logotipo/RS-2Logo.webp"
+      alt="RS Motorsport"
+      width="140"
+      height="48"
+      loading="eager"
+      class="h-10 w-auto"
+    />
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-[#0A0A0A] px-5 pt-10 pb-12 md:pt-16 md:pb-20">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#E01010]/10 via-transparent to-transparent pointer-events-none"></div>
+    <div class="relative max-w-2xl mx-auto text-center">
+      <p class="inline-block bg-[#E01010]/10 text-[#E01010] text-xs font-heading font-semibold uppercase tracking-widest px-3 py-1 rounded mb-5">
+        Campo Bom e Região · Especialistas em Performance
+      </p>
+      <h1 class="font-heading text-4xl md:text-5xl font-bold leading-tight mb-4 text-[#F5F5F5]">
+        Mais Potência.<br />
+        <span class="text-[#E01010]">Mais Performance.</span><br />
+        Do Jeito Certo.
+      </h1>
+      <p class="text-[#888888] text-lg mb-8 max-w-lg mx-auto leading-relaxed">
+        Remap de motor e preparação de performance para quem quer extrair o máximo do veículo — com segurança, garantia e resultado comprovado no dinamômetro.
+      </p>
+      <CTAWhatsApp
+        mensagem="Olá! Vim pelo Google e quero saber mais sobre remap de motor e performance."
+        texto="Falar sobre Performance"
+        tamanho="lg"
+        full
+      />
+      <p class="text-[#888888] text-xs mt-3">Orçamento sem compromisso · Atendimento especializado</p>
+    </div>
+  </section>
+
+  <!-- O QUE É REMAP -->
+  <section class="bg-[#141414] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-3 text-[#F5F5F5]">
+        O que é o Remap de Motor?
+      </h2>
+      <p class="text-[#888888] text-center text-sm mb-8 max-w-lg mx-auto leading-relaxed">
+        A maioria dos carros sai de fábrica com a ECU (central eletrônica) configurada de forma conservadora — para atender diferentes mercados, combustíveis e condições climáticas ao redor do mundo. Isso significa que o seu motor tem potencial represado.
+      </p>
+      <div class="bg-[#1E1E1E] border border-[#E01010]/20 rounded-xl p-6 mb-6">
+        <p class="font-heading font-semibold text-[#F5F5F5] mb-2">O remap recalibra os mapas da ECU para:</p>
+        <ul class="space-y-2">
+          {[
+            "Aumentar potência e torque de forma segura",
+            "Melhorar resposta do acelerador em baixas e médias rotações",
+            "Otimizar o consumo de combustível em uso normal",
+            "Corrigir falhas de fábrica na calibração original",
+            "Adaptar a performance ao combustível disponível no Brasil",
+          ].map((item) => (
+            <li class="flex items-center gap-2 text-sm text-[#F5F5F5]/80">
+              <span class="text-[#E01010] font-bold shrink-0">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <p class="text-[#888888] text-xs text-center">Todo remap é feito com monitoramento completo dos parâmetros do motor. Nenhum serviço é realizado se os sensores indicarem risco.</p>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS DE PERFORMANCE -->
+  <section class="bg-[#0A0A0A] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-10 text-[#F5F5F5]">
+        Serviços de Performance
+      </h2>
+      <div class="space-y-4">
+        {[
+          {
+            icone: "⚡",
+            nome: "Remap Stage 1",
+            desc: "Reprogramação da ECU original sem modificações mecânicas. Ideal para quem quer mais potência e torque mantendo o carro no padrão de fábrica. Ganhos típicos de 15% a 30% dependendo do motor.",
+            ideal: "Carros turbo flex ou gasolina sem modificações"
+          },
+          {
+            icone: "🏎️",
+            nome: "Remap Stage 2",
+            desc: "Para carros que já possuem upgrades mecânicos (downpipe, intercooler, filtro de ar). A ECU é reprogramada para trabalhar em conjunto com as melhorias físicas já instaladas.",
+            ideal: "Carros com modificações mecânicas de intake e escape"
+          },
+          {
+            icone: "🔬",
+            nome: "Diagnóstico de Performance",
+            desc: "Leitura completa da ECU, análise dos mapas atuais e avaliação do potencial real do motor. Relatório detalhado com recomendações para extrair mais do seu veículo.",
+            ideal: "Quem quer entender o que o carro pode oferecer"
+          },
+          {
+            icone: "🛠️",
+            nome: "Preparação Mecânica",
+            desc: "Modificações físicas que suportam e potencializam o remap: filtros de alto fluxo, escapamentos, upgrades de refrigeração. Trabalhamos com marcas homologadas e instalação profissional.",
+            ideal: "Quem quer a preparação completa de performance"
+          },
+        ].map(({ icone, nome, desc, ideal }) => (
+          <div class="bg-[#141414] border border-white/5 rounded-xl p-6">
+            <div class="flex items-start gap-4">
+              <span class="text-3xl shrink-0">{icone}</span>
+              <div>
+                <h3 class="font-heading text-xl font-bold text-[#F5F5F5] mb-2">{nome}</h3>
+                <p class="text-[#888888] text-sm leading-relaxed mb-3">{desc}</p>
+                <p class="text-xs text-[#E01010] font-semibold">Ideal para: {ideal}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA MID -->
+  <section class="bg-[#E01010] px-5 py-10 md:py-14">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">
+        Descubra o potencial real do seu carro
+      </h2>
+      <p class="text-white/80 mb-7 text-sm leading-relaxed">
+        Fale com nossos especialistas em performance. Atendemos de segunda a sexta, das 08h às 18h.
+      </p>
+      <a
+        href={`https://wa.me/555135972593?text=${encodeURIComponent("Olá! Vim pelo Google e quero saber mais sobre remap de motor e performance.")}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2.5 bg-white text-[#E01010] font-heading font-semibold uppercase tracking-wide px-9 py-4 text-lg rounded transition-all duration-200 hover:bg-[#F5F5F5] active:scale-95 w-full shadow-lg"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 shrink-0">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Quero Mais Performance
+      </a>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="bg-[#141414] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-2 text-[#F5F5F5]">
+        Resultados reais de clientes
+      </h2>
+      <p class="text-[#888888] text-center text-sm mb-10">Quem passou pela RS Motorsport sabe a diferença</p>
+      <div class="space-y-4">
+        {[
+          { nome: "André K.", texto: "Fiz o remap Stage 1 no meu Golf TSI e a diferença é impressionante. O carro ficou muito mais vivo, especialmente na retomada. Zero arrependimento. A equipe da RS explicou tudo antes de fazer.", cargo: "Golf TSI 1.4 · Remap Stage 1" },
+          { nome: "Guilherme P.", texto: "Levei meu Jeep Compass para o Stage 1. Ganho de torque perceptível desde a primeira saída. Além disso o consumo na estrada melhorou. Altamente recomendado.", cargo: "Jeep Compass · Remap Stage 1" },
+          { nome: "Thiago B.", texto: "Profissionalismo total. Antes de fazer qualquer coisa, rodaram um diagnóstico completo no carro e me mostraram exatamente o que seria alterado. Confiança do início ao fim.", cargo: "Audi A3 2.0T · Diagnóstico + Stage 2" },
+        ].map(({ nome, texto, cargo }) => (
+          <div class="bg-[#1E1E1E] border border-white/5 rounded-xl p-6">
+            <div class="flex gap-1 mb-3">
+              {Array(5).fill(0).map(() => <span class="text-[#E01010] text-sm">★</span>)}
+            </div>
+            <p class="text-[#F5F5F5]/80 text-sm leading-relaxed mb-4">"{texto}"</p>
+            <div>
+              <p class="font-heading font-semibold text-[#F5F5F5] text-sm">{nome}</p>
+              <p class="text-[#888888] text-xs">{cargo}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section class="bg-[#0A0A0A] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-10 text-[#F5F5F5]">
+        Onde Estamos
+      </h2>
+      <div class="bg-[#141414] border border-white/5 rounded-xl overflow-hidden">
+        <iframe
+          src="https://maps.google.com/maps?q=-29.6728914,-51.0601064&hl=pt-BR&z=16&output=embed"
+          width="100%"
+          height="200"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full"
+          title="Localização RS Motorsport"
+        ></iframe>
+        <div class="p-5 space-y-3">
+          <div class="flex items-start gap-3">
+            <span class="text-[#E01010] text-lg shrink-0">📍</span>
+            <div>
+              <p class="font-heading font-semibold text-[#F5F5F5]">Endereço</p>
+              <p class="text-[#888888] text-sm">R. Emilio Pedro Goedtel, 75 — Bairro Metzler<br />Campo Bom / RS — CEP 93717-145</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-[#E01010] text-lg shrink-0">🕐</span>
+            <div>
+              <p class="font-heading font-semibold text-[#F5F5F5]">Horário de Funcionamento</p>
+              <p class="text-[#888888] text-sm">Segunda a Sexta — 08h às 18h</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-[#141414] border-t border-white/5 px-5 py-12 md:py-16">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-[#F5F5F5] mb-3">
+        Pronto para liberar a performance?
+      </h2>
+      <p class="text-[#888888] mb-7 text-sm leading-relaxed">
+        Fale com nossa equipe agora e descubra o que seu motor é capaz de entregar.
+      </p>
+      <CTAWhatsApp
+        mensagem="Olá! Vim pelo Google e quero saber mais sobre remap de motor e performance."
+        texto="Falar sobre Performance Agora"
+        tamanho="lg"
+        full
+      />
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0A0A0A] border-t border-white/5 px-5 py-6 text-center">
+    <p class="text-[#888888] text-xs">
+      © {new Date().getFullYear()} RS Motorsport — Todos os direitos reservados<br />
+      R. Emilio Pedro Goedtel, 75 — Campo Bom/RS
+    </p>
+  </footer>
+</LayoutLP>

@@ -1,0 +1,33 @@
+---
+import "../styles/global.css"
+import BotaoWhatsAppFlutuante from "../components/BotaoWhatsAppFlutuante.astro"
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RS Motorsport — Oficina Premium em Campo Bom/RS</title>
+    <meta name="description" content="Oficina mecânica premium em Campo Bom/RS. Revisão, performance, remap de motor e lavagem detalhada para carros nacionais e importados. Mais de 12 anos de experiência." />
+    <link rel="canonical" href="https://rsmotorsport.com.br/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RS Motorsport — Oficina Premium em Campo Bom/RS" />
+    <meta property="og:description" content="Revisão, performance e lavagem detalhada para carros nacionais e importados. 12+ anos de mercado em Campo Bom/RS." />
+    <meta property="og:image" content="/og-image.jpg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Bebas+Neue&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="/logotipo/RS-2Logo.webp" />
+  </head>
+  <body class="bg-[#0A0A0A] text-[#F5F5F5] font-body antialiased">
+    <slot />
+    <BotaoWhatsAppFlutuante />
+  </body>
+</html>
