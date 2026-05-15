@@ -241,13 +241,19 @@ const depoimentos = [
           ></iframe>
         </div>
         <div class="space-y-5">
-          <div class="bg-[#141414] border border-white/5 rounded-xl p-5 flex items-start gap-4">
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=-29.6728914,-51.0601064"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-[#141414] border border-white/5 hover:border-[#E01010]/30 rounded-xl p-5 flex items-start gap-4 transition-colors duration-200 group"
+          >
             <span class="text-[#E01010] text-2xl shrink-0">📍</span>
             <div>
-              <p class="font-heading font-semibold text-[#F5F5F5] mb-1">Endereço</p>
+              <p class="font-heading font-semibold text-[#F5F5F5] mb-1 group-hover:text-[#E01010] transition-colors">Endereço — Como Chegar</p>
               <p class="text-[#888888] text-sm leading-relaxed">R. Emilio Pedro Goedtel, 75<br />Bairro Metzler — Campo Bom/RS<br />CEP 93717-145</p>
+              <p class="text-[#E01010] text-xs mt-2 font-semibold">Toque para abrir o Maps →</p>
             </div>
-          </div>
+          </a>
           <div class="bg-[#141414] border border-white/5 rounded-xl p-5 flex items-start gap-4">
             <span class="text-[#E01010] text-2xl shrink-0">🕐</span>
             <div>
@@ -309,7 +315,7 @@ const depoimentos = [
             Instagram
           </a>
           <a
-            href="https://share.google/THHO7AOJNepz6EVvo"
+            href="https://www.google.com/maps/dir/?api=1&destination=-29.6728914,-51.0601064"
             target="_blank"
             rel="noopener noreferrer"
             class="text-[#888888] hover:text-[#F5F5F5] transition-colors text-sm font-heading"
@@ -328,7 +334,14 @@ const depoimentos = [
       </div>
       <div class="border-t border-white/5 pt-6 text-center">
         <p class="text-[#888888] text-xs">
-          © {new Date().getFullYear()} RS Motorsport · R. Emilio Pedro Goedtel, 75 — Campo Bom/RS · Todos os direitos reservados
+          © {new Date().getFullYear()} RS Motorsport ·{" "}
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=-29.6728914,-51.0601064"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-[#E01010] transition-colors"
+          >R. Emilio Pedro Goedtel, 75 — Campo Bom/RS</a>
+          {" "}· Todos os direitos reservados
         </p>
       </div>
     </div>
