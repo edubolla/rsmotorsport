@@ -65,9 +65,21 @@ const depoimentos = [
 
   <!-- 1. HERO -->
   <section id="hero" class="relative overflow-hidden min-h-screen flex items-center bg-[#0A0A0A] pt-16">
-    <div class="absolute inset-0 bg-gradient-to-br from-[#E01010]/8 via-transparent to-[#141414]/80 pointer-events-none"></div>
-    <!-- Linha diagonal decorativa -->
-    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#141414] to-transparent pointer-events-none hidden md:block"></div>
+    <!-- Foto de fundo da oficina -->
+    <img
+      src="/images/home/hero-bg.webp"
+      alt="Interior da oficina RS Motorsport"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+      width="1600"
+      height="2070"
+    />
+    <!-- Overlay escuro para legibilidade do texto -->
+    <div class="absolute inset-0 bg-[#0A0A0A]/80 pointer-events-none"></div>
+    <!-- Gradiente vermelho sutil à esquerda -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#E01010]/10 via-transparent to-transparent pointer-events-none"></div>
+    <!-- Vinheta no rodapé da seção -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent pointer-events-none"></div>
 
     <div class="relative max-w-6xl mx-auto px-5 py-20 md:py-32 w-full">
       <div class="max-w-2xl">
