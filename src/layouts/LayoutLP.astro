@@ -125,6 +125,9 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).toStri
           } else if (href.indexOf('maps.google') !== -1 || href.indexOf('google.com/maps') !== -1) {
             gtag('event', 'click_rota_mapa', { page_category: cat });
             window.dataLayer.push({ event: 'click_rota_mapa', page_category: cat });
+          } else if (href.indexOf('#servicos') !== -1) {
+            gtag('event', 'click_ver_servicos', { page_category: cat });
+            window.dataLayer.push({ event: 'click_ver_servicos', page_category: cat });
           }
         });
       })();
