@@ -37,7 +37,7 @@ import BotaoWhatsAppFlutuante from "../components/BotaoWhatsAppFlutuante.astro"
     <meta name="theme-color" content="#141414" />
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
@@ -45,8 +45,8 @@ import BotaoWhatsAppFlutuante from "../components/BotaoWhatsAppFlutuante.astro"
     <!-- End Google Tag Manager -->
 
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GSGH9J70TX"></script>
-    <script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-GSGH9J70TX"></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -65,7 +65,7 @@ import BotaoWhatsAppFlutuante from "../components/BotaoWhatsAppFlutuante.astro"
     <BotaoWhatsAppFlutuante />
 
     <!-- Rastreamento GA4: scroll, cliques e categorias de página -->
-    <script>
+    <script is:inline>
       (function() {
         function gtag(){ window.dataLayer.push(arguments); }
 
