@@ -52,6 +52,16 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).toStri
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-5BTDS6RL');</script>
     <!-- End Google Tag Manager -->
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GSGH9J70TX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GSGH9J70TX');
+    </script>
+    <!-- End Google Analytics 4 -->
   </head>
   <body class="bg-[#0A0A0A] text-[#F5F5F5] font-body antialiased">
 
@@ -63,20 +73,61 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).toStri
     <slot />
     <BotaoWhatsAppFlutuante />
 
-    <!-- Rastreamento de cliques WhatsApp via GTM -->
+    <!-- Rastreamento GA4: scroll, cliques e categorias de página -->
     <script>
-      document.addEventListener('click', function(e) {
-        var link = e.target.closest('a');
-        if (!link) return;
-        if (link.href && link.href.includes('wa.me')) {
-          window.dataLayer = window.dataLayer || [];
-          if (link.classList.contains('whatsapp-float')) {
-            window.dataLayer.push({ event: 'btn_whatsapp_float' });
-          } else {
-            window.dataLayer.push({ event: 'btn_whatsapp' });
+      (function() {
+        function gtag(){ window.dataLayer.push(arguments); }
+
+        // Categoria da página
+        var path = window.location.pathname;
+        var cat = 'home';
+        if (path.indexOf('/lp/revisao') !== -1)      cat = 'lp_revisao';
+        else if (path.indexOf('/lp/performance') !== -1) cat = 'lp_performance';
+        else if (path.indexOf('/lp/lavagem') !== -1)  cat = 'lp_lavagem';
+        else if (path.indexOf('/lp/importados') !== -1)  cat = 'lp_importados';
+
+        // Pageview com categoria
+        gtag('event', 'page_view', {
+          page_category: cat,
+          page_location: window.location.href,
+          page_title: document.title
+        });
+
+        // Scroll depth 50% e 100%
+        var scrollFired = {};
+        window.addEventListener('scroll', function() {
+          var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+          if (scrollable <= 0) return;
+          var pct = Math.round((window.scrollY / scrollable) * 100);
+          [50, 100].forEach(function(depth) {
+            if (!scrollFired[depth] && pct >= depth) {
+              scrollFired[depth] = true;
+              var evtScroll = depth === 50 ? 'scroll_50' : 'scroll_100';
+              gtag('event', evtScroll, { page_category: cat });
+              window.dataLayer.push({ event: evtScroll, page_category: cat });
+            }
+          });
+        }, { passive: true });
+
+        // Cliques em links
+        document.addEventListener('click', function(e) {
+          var link = e.target.closest('a');
+          if (!link || !link.href) return;
+          var href = link.href;
+
+          if (href.indexOf('wa.me') !== -1) {
+            var evtName = link.classList.contains('whatsapp-float') ? 'btn_whatsapp_float' : 'btn_whatsapp';
+            gtag('event', evtName, { page_category: cat });
+            window.dataLayer.push({ event: evtName, page_category: cat });
+          } else if (href.indexOf('instagram.com') !== -1) {
+            gtag('event', 'click_instagram', { page_category: cat });
+            window.dataLayer.push({ event: 'click_instagram', page_category: cat });
+          } else if (href.indexOf('maps.google') !== -1 || href.indexOf('google.com/maps') !== -1) {
+            gtag('event', 'click_rota_mapa', { page_category: cat });
+            window.dataLayer.push({ event: 'click_rota_mapa', page_category: cat });
           }
-        }
-      });
+        });
+      })();
     </script>
   </body>
 </html>
