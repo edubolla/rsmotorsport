@@ -4,6 +4,7 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://rsmotorsport.com.br",
+  trailingSlash: "always",
   integrations: [react(), sitemap()],
   output: "static",
 });
