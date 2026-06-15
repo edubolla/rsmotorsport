@@ -1,0 +1,583 @@
+---
+import "../styles/global.css"
+
+const WHATSAPP_NUMBER = "555135972593"
+const SITE_URL = "https://rsmotorsport.com.br"
+const PAGE_PATH = "/oficina-mecanica-campo-bom/"
+const PAGE_URL = `${SITE_URL}${PAGE_PATH}`
+const PAGE_TITLE = "Oficina Mecânica em Campo Bom | RS Motorsport"
+const PAGE_DESCRIPTION =
+  "Oficina mecânica em Campo Bom com diagnóstico claro, orçamento transparente e atendimento via WhatsApp. Revisão, freios, suspensão, motor e injeção eletrônica."
+
+const BUSINESS_NAME = "RS Motorsport"
+const ADDRESS = "R. Emilio Pedro Goedtel, 75 - Bairro Metzler, Campo Bom / RS - CEP 93717-145"
+const MAPS_URL = "https://www.google.com/maps/dir/?api=1&destination=-29.6728914,-51.0601064"
+const COORDINATES = {
+  latitude: -29.6728914,
+  longitude: -51.0601064,
+}
+
+const whatsappMessage =
+  "Olá! Vim pelo site e preciso de uma oficina mecânica em Campo Bom. Quero entender o que pode estar acontecendo com meu carro."
+const reviewMessage =
+  "Olá! Quero agendar uma revisão preventiva na RS Motorsport em Campo Bom."
+
+const whatsappUrl = (message: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+
+const pains = [
+  "Pagou caro e o problema voltou.",
+  "Trocaram peças sem explicar o motivo.",
+  "Recebeu um orçamento confuso.",
+  "Ficou dias sem resposta sobre o carro.",
+  "Teve medo de ser enganado por não entender de mecânica.",
+]
+
+const solutions = [
+  "Diagnóstico preciso antes do serviço.",
+  "Explicação clara sobre o problema.",
+  "Orçamento antes de qualquer reparo.",
+  "Serviço realizado somente com sua aprovação.",
+  "Atendimento para carros nacionais e importados.",
+  "Equipe experiente e estrutura profissional.",
+]
+
+const services = [
+  "Diagnóstico automotivo",
+  "Revisão preventiva",
+  "Troca de óleo e filtros",
+  "Freios",
+  "Suspensão",
+  "Injeção eletrônica",
+  "Motor",
+  "Manutenção para nacionais e importados",
+]
+
+const steps = [
+  "Você chama no WhatsApp.",
+  "Explica o que está acontecendo com o carro.",
+  "A equipe orienta o melhor caminho.",
+  "O veículo passa por avaliação/diagnóstico.",
+  "Você recebe explicação e orçamento.",
+  "O serviço só começa após sua aprovação.",
+]
+
+const faqs = [
+  {
+    question: "Vocês atendem por WhatsApp?",
+    answer:
+      "Sim. Você pode chamar a RS Motorsport pelo WhatsApp para explicar o que está acontecendo com o carro e receber a orientação inicial da equipe.",
+  },
+  {
+    question: "A oficina fica em Campo Bom?",
+    answer:
+      "Sim. A RS Motorsport fica na R. Emilio Pedro Goedtel, 75, Bairro Metzler, em Campo Bom / RS.",
+  },
+  {
+    question: "Vocês fazem diagnóstico antes do orçamento?",
+    answer:
+      "Sim. O objetivo é entender a causa do problema antes de indicar reparos ou troca de peças.",
+  },
+  {
+    question: "O serviço só é feito depois da minha autorização?",
+    answer:
+      "Sim. A equipe explica o diagnóstico, apresenta o orçamento e o serviço só começa após sua aprovação.",
+  },
+  {
+    question: "Atendem carros nacionais e importados?",
+    answer:
+      "Sim. A RS Motorsport atende veículos nacionais e importados, sempre avaliando o melhor caminho para cada caso.",
+  },
+  {
+    question: "Posso agendar revisão preventiva?",
+    answer:
+      "Sim. A revisão preventiva pode ser agendada pelo WhatsApp e ajuda a evitar gastos inesperados e riscos na rotina.",
+  },
+  {
+    question: "Vocês atendem pessoas de Sapiranga, Novo Hamburgo e região?",
+    answer:
+      "Sim. A oficina atende Campo Bom e clientes da região, incluindo Sapiranga, Novo Hamburgo, Estância Velha e cidades próximas.",
+  },
+]
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  name: BUSINESS_NAME,
+  description: PAGE_DESCRIPTION,
+  url: PAGE_URL,
+  telephone: `+${WHATSAPP_NUMBER}`,
+  image: `${SITE_URL}/images/home/hero-bg.webp`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "R. Emilio Pedro Goedtel, 75",
+    addressLocality: "Campo Bom",
+    addressRegion: "RS",
+    postalCode: "93717-145",
+    addressCountry: "BR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: COORDINATES.latitude,
+    longitude: COORDINATES.longitude,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "18:00",
+    },
+  ],
+  areaServed: [
+    { "@type": "City", name: "Campo Bom" },
+    { "@type": "City", name: "Sapiranga" },
+    { "@type": "City", name: "Novo Hamburgo" },
+    { "@type": "City", name: "Estância Velha" },
+  ],
+  makesOffer: services.map((service) => ({
+    "@type": "Offer",
+    itemOffered: {
+      "@type": "Service",
+      name: service,
+    },
+  })),
+}
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: answer,
+    },
+  })),
+}
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{PAGE_TITLE}</title>
+    <meta name="description" content={PAGE_DESCRIPTION} />
+    <link rel="canonical" href={PAGE_URL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={PAGE_TITLE} />
+    <meta property="og:description" content={PAGE_DESCRIPTION} />
+    <meta property="og:url" content={PAGE_URL} />
+    <meta property="og:image" content="/images/home/hero-bg.webp" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Bebas+Neue&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#141414" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+    <script is:inline>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5BTDS6RL');
+    </script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-GSGH9J70TX"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GSGH9J70TX');
+    </script>
+  </head>
+
+  <body class="bg-[#0A0A0A] text-[#F5F5F5] font-body antialiased">
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5BTDS6RL"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe>
+    </noscript>
+
+    <header class="sticky top-0 z-40 border-b border-white/5 bg-[#0A0A0A]/95 backdrop-blur-sm">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+        <a href="#hero" class="group inline-flex items-center gap-3" aria-label="RS Motorsport">
+          <span class="flex h-10 w-10 items-center justify-center rounded bg-[#E01010] font-display text-2xl leading-none text-white">
+            RS
+          </span>
+          <span class="font-heading text-xl font-bold uppercase tracking-wide text-[#F5F5F5] group-hover:text-[#E01010] transition-colors">
+            Motorsport
+          </span>
+        </a>
+        <a
+          id="cta-whatsapp-header"
+          href={whatsappUrl(whatsappMessage)}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-gtm-event="btn_whatsapp_header"
+          data-cta-position="header"
+          data-cta-id="oficina_header"
+          aria-label="Chamar a RS Motorsport no WhatsApp"
+          class="hidden rounded bg-[#E01010] px-5 py-2.5 font-heading text-sm font-semibold uppercase tracking-wide text-white transition-all duration-200 hover:bg-[#B50D0D] md:inline-flex"
+        >
+          WhatsApp
+        </a>
+      </div>
+    </header>
+
+    <main id="hero">
+      <section class="relative isolate overflow-hidden bg-[#0A0A0A] px-5 py-12 md:py-24">
+        <img
+          src="/images/home/hero-bg.webp"
+          alt="Interior da oficina RS Motorsport em Campo Bom"
+          class="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+          width="1600"
+          height="2070"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div class="absolute inset-0 -z-10 bg-[#0A0A0A]/82"></div>
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-[#0A0A0A] via-transparent to-[#0A0A0A]/40"></div>
+
+        <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.05fr_0.95fr] md:items-center">
+          <div>
+            <p class="mb-5 inline-block rounded bg-[#E01010]/10 px-3 py-1 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">
+              Oficina mecânica em Campo Bom / RS
+            </p>
+            <h1 class="mb-5 font-heading text-4xl font-bold leading-tight text-[#F5F5F5] md:text-6xl">
+              Seu carro está com problema? Descubra a causa antes de gastar dinheiro à toa.
+            </h1>
+            <p class="mb-8 max-w-xl text-lg leading-relaxed text-[#F5F5F5]/78 md:text-xl">
+              Diagnóstico claro, orçamento transparente e serviço autorizado por você. Oficina mecânica em Campo Bom para quem busca confiança de verdade.
+            </p>
+            <div class="flex flex-col gap-3 sm:flex-row">
+              <a
+                id="cta-whatsapp-hero"
+                href={whatsappUrl(whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-gtm-event="btn_whatsapp_hero"
+                data-cta-position="hero"
+                data-cta-id="oficina_hero"
+                aria-label="Chamar no WhatsApp"
+                class="inline-flex min-h-12 items-center justify-center rounded bg-[#E01010] px-8 py-4 font-heading text-base font-semibold uppercase tracking-wide text-white shadow-lg shadow-red-950/30 transition-all duration-200 hover:bg-[#B50D0D] active:scale-95"
+              >
+                Chamar no WhatsApp
+              </a>
+              <a
+                id="cta-ver-servicos"
+                href="#servicos"
+                data-gtm-event="click_ver_servicos"
+                data-cta-position="hero"
+                data-cta-id="ver_servicos"
+                class="inline-flex min-h-12 items-center justify-center rounded border border-white/20 px-8 py-4 font-heading text-base font-semibold uppercase tracking-wide text-[#F5F5F5] transition-all duration-200 hover:border-[#E01010]/60 hover:text-white"
+              >
+                Ver serviços
+              </a>
+            </div>
+            <p class="mt-3 text-sm text-[#F5F5F5]/62">Atendimento em Campo Bom / RS e região.</p>
+          </div>
+
+          <aside class="rounded-2xl border border-white/10 bg-[#141414]/90 p-5 shadow-2xl shadow-black/30 md:p-7">
+            <p class="mb-4 font-heading text-sm font-semibold uppercase tracking-widest text-[#E01010]">
+              Para sintomas comuns
+            </p>
+            <div class="grid gap-3">
+              {[
+                "Luz da injeção acesa",
+                "Carro fazendo barulho",
+                "Falha ao acelerar",
+                "Vibração ou instabilidade",
+                "Consumo acima do normal",
+              ].map((symptom) => (
+                <div class="flex items-center gap-3 rounded-lg border border-white/5 bg-[#1E1E1E] p-3">
+                  <span class="h-2.5 w-2.5 rounded-full bg-[#E01010]"></span>
+                  <span class="text-sm text-[#F5F5F5]/82">{symptom}</span>
+                </div>
+              ))}
+            </div>
+            <p class="mt-5 text-sm leading-relaxed text-[#888888]">
+              Antes de aprovar qualquer reparo, você entende o que foi encontrado e qual é o caminho recomendado.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="bg-[#141414] px-5 py-14 md:py-20">
+        <div class="mx-auto max-w-6xl">
+          <div class="mx-auto mb-10 max-w-2xl text-center">
+            <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">
+              Oficina sem surpresa
+            </p>
+            <h2 class="text-3xl font-bold text-[#F5F5F5] md:text-4xl">Você já passou por isso em alguma oficina?</h2>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+            {pains.map((pain) => (
+              <div class="rounded-xl border border-white/5 bg-[#1E1E1E] p-5">
+                <span class="mb-4 block h-1 w-10 rounded-full bg-[#E01010]"></span>
+                <p class="text-sm leading-relaxed text-[#F5F5F5]/82">{pain}</p>
+              </div>
+            ))}
+          </div>
+          <p class="mx-auto mt-8 max-w-2xl text-center text-lg leading-relaxed text-[#F5F5F5]/82">
+            Na RS Motorsport, o primeiro passo é entender o problema antes de sair trocando peças.
+          </p>
+        </div>
+      </section>
+
+      <section class="bg-[#0A0A0A] px-5 py-14 md:py-20">
+        <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+          <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#141414]">
+            <img
+              src="/images/home/home-diagnostico.webp"
+              alt="Diagnóstico automotivo na RS Motorsport"
+              class="h-full min-h-[320px] w-full object-cover"
+              width="900"
+              height="1100"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/80 to-transparent"></div>
+            <p class="absolute bottom-5 left-5 right-5 font-heading text-xl font-bold text-white">
+              Diagnóstico antes do reparo.
+            </p>
+          </div>
+
+          <div>
+            <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Clareza no processo</p>
+            <h2 class="mb-8 text-3xl font-bold text-[#F5F5F5] md:text-4xl">O que você encontra na RS Motorsport</h2>
+            <div class="grid gap-3 sm:grid-cols-2">
+              {solutions.map((solution) => (
+                <div class="rounded-xl border border-white/5 bg-[#141414] p-4">
+                  <span class="mb-3 inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#E01010]/10 text-sm font-bold text-[#E01010]">
+                    ✓
+                  </span>
+                  <p class="text-sm leading-relaxed text-[#F5F5F5]/82">{solution}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicos" class="bg-[#141414] px-5 py-14 md:py-20">
+        <div class="mx-auto max-w-6xl">
+          <div class="mb-10 max-w-2xl">
+            <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Manutenção automotiva</p>
+            <h2 class="mb-4 text-3xl font-bold text-[#F5F5F5] md:text-4xl">Serviços para manter seu carro seguro e confiável</h2>
+            <p class="text-base leading-relaxed text-[#888888]">
+              Atendimento para quem procura mecânico em Campo Bom, revisão automotiva, diagnóstico de falhas e manutenção com explicação clara.
+            </p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((service) => (
+              <article class="rounded-xl border border-white/5 bg-[#1E1E1E] p-5 transition-colors duration-200 hover:border-[#E01010]/40">
+                <h3 class="font-heading text-xl font-bold text-[#F5F5F5]">{service}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#0A0A0A] px-5 py-14 md:py-20">
+        <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+          <div class="rounded-2xl border border-white/10 bg-[#141414] p-7 md:p-10">
+            <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Confiança primeiro</p>
+            <h2 class="mb-5 text-3xl font-bold text-[#F5F5F5] md:text-4xl">
+              Uma oficina para quem procura confiança, não surpresa.
+            </h2>
+            <p class="text-lg leading-relaxed text-[#F5F5F5]/78">
+              Sabemos que deixar o carro em uma oficina exige confiança. Por isso, prezamos por clareza no atendimento, diagnóstico responsável e aprovação do cliente antes da execução do serviço.
+            </p>
+          </div>
+          <div class="grid gap-4">
+            {[
+              { number: "12+", label: "anos de experiência no mercado" },
+              { number: "08h-18h", label: "atendimento de segunda a sexta" },
+              { number: "Campo Bom", label: "oficina próxima para a região" },
+            ].map(({ number, label }) => (
+              <div class="rounded-xl border border-white/5 bg-[#141414] p-5">
+                <p class="font-display text-4xl leading-none text-[#E01010]">{number}</p>
+                <p class="mt-2 text-sm text-[#888888]">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="relative isolate overflow-hidden bg-[#141414] px-5 py-14 md:py-20">
+        <img
+          src="/images/home/home-ambiente.webp"
+          alt="Estrutura profissional da oficina RS Motorsport"
+          class="absolute inset-0 -z-20 h-full w-full object-cover"
+          width="1200"
+          height="900"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 -z-10 bg-[#141414]/90"></div>
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Rotina segura</p>
+          <h2 class="mb-5 text-3xl font-bold text-[#F5F5F5] md:text-4xl">
+            A segurança da sua rotina começa pela manutenção do seu carro.
+          </h2>
+          <p class="mb-8 text-lg leading-relaxed text-[#F5F5F5]/78">
+            Seja para trabalhar, levar a família ou viajar, seu carro precisa estar confiável. Uma revisão preventiva pode evitar problemas maiores, gastos inesperados e riscos no trânsito.
+          </p>
+          <a
+            id="cta-whatsapp-revisao"
+            href={whatsappUrl(reviewMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-gtm-event="btn_whatsapp_revisao"
+            data-cta-position="seguranca"
+            data-cta-id="agendar_revisao"
+            aria-label="Agendar revisão pelo WhatsApp"
+            class="inline-flex min-h-12 w-full items-center justify-center rounded bg-[#E01010] px-8 py-4 font-heading text-base font-semibold uppercase tracking-wide text-white shadow-lg shadow-red-950/30 transition-all duration-200 hover:bg-[#B50D0D] active:scale-95 sm:w-auto"
+          >
+            Agendar revisão pelo WhatsApp
+          </a>
+        </div>
+      </section>
+
+      <section class="bg-[#0A0A0A] px-5 py-14 md:py-20">
+        <div class="mx-auto max-w-5xl">
+          <div class="mx-auto mb-10 max-w-2xl text-center">
+            <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Passo a passo</p>
+            <h2 class="text-3xl font-bold text-[#F5F5F5] md:text-4xl">Como funciona o atendimento</h2>
+          </div>
+          <ol class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {steps.map((step, index) => (
+              <li class="rounded-xl border border-white/5 bg-[#141414] p-5">
+                <span class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#E01010] font-heading text-lg font-bold text-white">
+                  {index + 1}
+                </span>
+                <p class="text-base leading-relaxed text-[#F5F5F5]/82">{step}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section class="bg-[#141414] px-5 py-14 md:py-20">
+        <div class="mx-auto max-w-3xl">
+          <div class="mb-10 text-center">
+            <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Dúvidas frequentes</p>
+            <h2 class="text-3xl font-bold text-[#F5F5F5] md:text-4xl">Perguntas sobre atendimento e diagnóstico</h2>
+          </div>
+          <div class="space-y-3">
+            {faqs.map(({ question, answer }) => (
+              <details class="group rounded-xl border border-white/5 bg-[#1E1E1E] p-5">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-lg font-bold text-[#F5F5F5]">
+                  {question}
+                  <span class="text-2xl leading-none text-[#E01010] transition-transform duration-200 group-open:rotate-45">+</span>
+                </summary>
+                <p class="mt-3 text-sm leading-relaxed text-[#888888]">{answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#E01010] px-5 py-14 md:py-20">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="mb-4 text-3xl font-bold text-white md:text-4xl">
+            Precisa de uma oficina mecânica de confiança em Campo Bom?
+          </h2>
+          <p class="mb-8 text-lg leading-relaxed text-white/82">
+            Chame a RS Motorsport no WhatsApp e entenda o que seu carro precisa antes de gastar com serviços desnecessários.
+          </p>
+          <a
+            id="cta-whatsapp-final"
+            href={whatsappUrl(whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-gtm-event="btn_whatsapp_final"
+            data-cta-position="final"
+            data-cta-id="oficina_final"
+            aria-label="Falar com a oficina agora pelo WhatsApp"
+            class="inline-flex min-h-12 w-full items-center justify-center rounded bg-white px-8 py-4 font-heading text-base font-semibold uppercase tracking-wide text-[#E01010] shadow-lg transition-all duration-200 hover:bg-[#F5F5F5] active:scale-95 sm:w-auto"
+          >
+            Falar com a oficina agora
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/5 bg-[#0A0A0A] px-5 pb-24 pt-8 text-center md:pb-8">
+      <p class="text-sm text-[#888888]">
+        © {new Date().getFullYear()} RS Motorsport - Oficina mecânica em Campo Bom / RS
+      </p>
+      <a
+        href={MAPS_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-gtm-event="click_rota_mapa"
+        data-cta-position="footer"
+        data-cta-id="rota_mapa"
+        class="mt-2 inline-block text-sm text-[#F5F5F5]/70 transition-colors hover:text-[#E01010]"
+      >
+        {ADDRESS}
+      </a>
+    </footer>
+
+    <a
+      id="cta-whatsapp-sticky"
+      href={whatsappUrl(whatsappMessage)}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-gtm-event="btn_whatsapp_sticky"
+      data-cta-position="sticky_mobile"
+      data-cta-id="oficina_sticky"
+      aria-label="Chamar a RS Motorsport no WhatsApp"
+      class="fixed bottom-4 left-4 right-4 z-50 inline-flex min-h-12 items-center justify-center rounded bg-[#E01010] px-6 py-3 font-heading text-sm font-semibold uppercase tracking-wide text-white shadow-2xl shadow-black/50 transition-all duration-200 hover:bg-[#B50D0D] active:scale-95 md:hidden"
+    >
+      Chamar no WhatsApp
+    </a>
+
+    <script is:inline>
+      (function() {
+        var pageCategory = 'lp_oficina_mecanica_campo_bom';
+
+        function sendEvent(eventName, payload) {
+          var eventPayload = Object.assign({ page_category: pageCategory }, payload || {});
+
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, eventPayload);
+          }
+
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push(Object.assign({ event: eventName }, eventPayload));
+        }
+
+        sendEvent('page_view_lp', {
+          page_location: window.location.href,
+          page_title: document.title
+        });
+
+        document.addEventListener('click', function(event) {
+          var link = event.target.closest('a[data-gtm-event]');
+          if (!link) return;
+
+          sendEvent(link.getAttribute('data-gtm-event'), {
+            cta_position: link.getAttribute('data-cta-position'),
+            cta_id: link.getAttribute('data-cta-id'),
+            link_url: link.href
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
