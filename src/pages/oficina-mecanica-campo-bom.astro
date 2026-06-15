@@ -1,13 +1,39 @@
 ---
 import "../styles/global.css"
 
+interface Props {
+  variant?: "a" | "b"
+  pagePath?: string
+}
+
+const { variant, pagePath = "/oficina-mecanica-campo-bom/" } = Astro.props
 const WHATSAPP_NUMBER = "555135972593"
 const SITE_URL = "https://rsmotorsport.com.br"
-const PAGE_PATH = "/oficina-mecanica-campo-bom/"
+const PAGE_PATH = pagePath
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`
 const PAGE_TITLE = "Oficina Mecânica em Campo Bom | RS Motorsport"
 const PAGE_DESCRIPTION =
   "Oficina mecânica em Campo Bom com diagnóstico claro, orçamento transparente e atendimento via WhatsApp. Revisão, freios, suspensão, motor e injeção eletrônica."
+
+const heroCopy = {
+  default: {
+    headline: "Seu carro está com problema? Entenda o melhor caminho antes de autorizar qualquer serviço.",
+    subheadline:
+      "Atendimento claro, orçamento transparente e serviço autorizado por você. Oficina mecânica em Campo Bom para quem busca confiança de verdade.",
+  },
+  a: {
+    headline: "Seu carro está com problema? Entenda o que será feito antes de autorizar o serviço.",
+    subheadline:
+      "Atendimento transparente, avaliação técnica quando necessária e orçamento explicado antes da execução. Oficina mecânica em Campo Bom para quem quer resolver o problema com confiança.",
+  },
+  b: {
+    headline: "Seu carro está com problema? Tenha clareza antes de aprovar qualquer reparo.",
+    subheadline:
+      "Atendimento transparente, avaliação técnica quando necessária e orçamento explicado antes da execução. Oficina mecânica em Campo Bom para quem quer resolver o problema com confiança.",
+  },
+}
+
+const currentHeroCopy = variant ? heroCopy[variant] : heroCopy.default
 
 const BUSINESS_NAME = "RS Motorsport"
 const ADDRESS = "R. Emilio Pedro Goedtel, 75 - Bairro Metzler, Campo Bom / RS - CEP 93717-145"
@@ -259,10 +285,10 @@ const faqSchema = {
               Oficina mecânica em Campo Bom / RS
             </p>
             <h1 class="mb-5 font-heading text-4xl font-bold leading-tight text-[#F5F5F5] md:text-6xl">
-              Seu carro está com problema? Entenda o melhor caminho antes de autorizar qualquer serviço.
+              {currentHeroCopy.headline}
             </h1>
             <p class="mb-8 max-w-xl text-lg leading-relaxed text-[#F5F5F5]/78 md:text-xl">
-              Atendimento claro, orçamento transparente e serviço autorizado por você. Oficina mecânica em Campo Bom para quem busca confiança de verdade.
+              {currentHeroCopy.subheadline}
             </p>
             <div class="flex flex-col gap-3 sm:flex-row">
               <a
