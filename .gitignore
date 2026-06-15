@@ -16,3 +16,7 @@ dist/
 .DS_Store
 Thumbs.db
 node_modules
+
+# Local project notes and raw image assets
+AGENTS.md
+images/
