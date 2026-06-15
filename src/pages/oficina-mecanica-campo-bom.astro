@@ -34,7 +34,7 @@ const pains = [
 ]
 
 const solutions = [
-  "Diagnóstico preciso antes do serviço.",
+  "Avaliação clara para orientar o melhor caminho.",
   "Explicação clara sobre o problema.",
   "Orçamento antes de qualquer reparo.",
   "Serviço realizado somente com sua aprovação.",
@@ -57,7 +57,7 @@ const steps = [
   "Você chama no WhatsApp.",
   "Explica o que está acontecendo com o carro.",
   "A equipe orienta o melhor caminho.",
-  "O veículo passa por avaliação/diagnóstico.",
+  "O veículo passa pela avaliação técnica indicada.",
   "Você recebe explicação e orçamento.",
   "O serviço só começa após sua aprovação.",
 ]
@@ -74,14 +74,14 @@ const faqs = [
       "Sim. A RS Motorsport fica na R. Emilio Pedro Goedtel, 75, Bairro Metzler, em Campo Bom / RS.",
   },
   {
-    question: "Vocês fazem diagnóstico antes do orçamento?",
+    question: "Vocês orientam o melhor caminho antes do serviço?",
     answer:
-      "Sim. O objetivo é entender a causa do problema antes de indicar reparos ou troca de peças.",
+      "Sim. A equipe entende o que está acontecendo, orienta a avaliação técnica indicada e explica os próximos passos antes de qualquer reparo.",
   },
   {
     question: "O serviço só é feito depois da minha autorização?",
     answer:
-      "Sim. A equipe explica o diagnóstico, apresenta o orçamento e o serviço só começa após sua aprovação.",
+      "Sim. A equipe explica a avaliação, apresenta o orçamento e o serviço só começa após sua aprovação.",
   },
   {
     question: "Atendem carros nacionais e importados?",
@@ -259,10 +259,10 @@ const faqSchema = {
               Oficina mecânica em Campo Bom / RS
             </p>
             <h1 class="mb-5 font-heading text-4xl font-bold leading-tight text-[#F5F5F5] md:text-6xl">
-              Seu carro está com problema? Descubra a causa antes de gastar dinheiro à toa.
+              Seu carro está com problema? Entenda o melhor caminho antes de autorizar qualquer serviço.
             </h1>
             <p class="mb-8 max-w-xl text-lg leading-relaxed text-[#F5F5F5]/78 md:text-xl">
-              Diagnóstico claro, orçamento transparente e serviço autorizado por você. Oficina mecânica em Campo Bom para quem busca confiança de verdade.
+              Atendimento claro, orçamento transparente e serviço autorizado por você. Oficina mecânica em Campo Bom para quem busca confiança de verdade.
             </p>
             <div class="flex flex-col gap-3 sm:flex-row">
               <a
@@ -311,7 +311,7 @@ const faqSchema = {
               ))}
             </div>
             <p class="mt-5 text-sm leading-relaxed text-[#888888]">
-              Antes de aprovar qualquer reparo, você entende o que foi encontrado e qual é o caminho recomendado.
+              Antes de aprovar qualquer reparo, você recebe uma explicação do que foi avaliado e do caminho recomendado.
             </p>
           </aside>
         </div>
@@ -334,7 +334,7 @@ const faqSchema = {
             ))}
           </div>
           <p class="mx-auto mt-8 max-w-2xl text-center text-lg leading-relaxed text-[#F5F5F5]/82">
-            Na RS Motorsport, o primeiro passo é entender o problema antes de sair trocando peças.
+            Na RS Motorsport, o primeiro passo é orientar você com clareza antes de sair trocando peças.
           </p>
         </div>
       </section>
@@ -352,7 +352,7 @@ const faqSchema = {
             />
             <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/80 to-transparent"></div>
             <p class="absolute bottom-5 left-5 right-5 font-heading text-xl font-bold text-white">
-              Diagnóstico antes do reparo.
+              Avaliação clara antes do reparo.
             </p>
           </div>
 
@@ -369,6 +369,19 @@ const faqSchema = {
                 </div>
               ))}
             </div>
+            <a
+              id="cta-whatsapp-solucao"
+              href={whatsappUrl(whatsappMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-gtm-event="btn_whatsapp_solucao"
+              data-cta-position="solucao"
+              data-cta-id="oficina_solucao"
+              aria-label="Chamar a RS Motorsport no WhatsApp para entender o problema do carro"
+              class="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded bg-[#E01010] px-8 py-4 font-heading text-base font-semibold uppercase tracking-wide text-white shadow-lg shadow-red-950/30 transition-all duration-200 hover:bg-[#B50D0D] active:scale-95 sm:w-auto"
+            >
+              Chamar no WhatsApp
+            </a>
           </div>
         </div>
       </section>
@@ -497,7 +510,7 @@ const faqSchema = {
             Precisa de uma oficina mecânica de confiança em Campo Bom?
           </h2>
           <p class="mb-8 text-lg leading-relaxed text-white/82">
-            Chame a RS Motorsport no WhatsApp e entenda o que seu carro precisa antes de gastar com serviços desnecessários.
+            Chame a RS Motorsport no WhatsApp, explique o que está acontecendo e receba orientação sobre o melhor caminho para o seu carro.
           </p>
           <a
             id="cta-whatsapp-final"
