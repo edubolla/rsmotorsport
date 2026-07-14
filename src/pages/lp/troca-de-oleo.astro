@@ -1,0 +1,379 @@
+---
+import LayoutLP from "../../layouts/LayoutLP.astro"
+import CTAWhatsApp from "../../components/CTAWhatsApp.astro"
+
+const WHATSAPP_MSG =
+  "Olá! Vi o anúncio e quero orçamento para troca de óleo e filtro do meu carro."
+---
+
+<LayoutLP
+  title="Troca de Óleo em Campo Bom | Óleo e Filtro | RS Motorsport"
+  description="Troca de óleo e filtro em Campo Bom/RS. Atendimento para carros nacionais e importados, orçamento pelo WhatsApp. Oficina mecânica com mais de 14 anos de experiência."
+>
+  <!-- HEADER -->
+  <header class="flex items-center justify-center py-4 px-6 border-b border-white/5 bg-[#0A0A0A]">
+    <img
+      src="/logotipo/RS-2Logo.webp"
+      alt="RS Motorsport"
+      width="140"
+      height="48"
+      loading="eager"
+      class="h-10 w-auto"
+    />
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-[#0A0A0A] px-5 pt-10 pb-12 md:pt-16 md:pb-20">
+    <img
+      src="/images/revisao/revisao-filtro.webp"
+      alt="Troca de óleo e filtro na RS Motorsport em Campo Bom"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+      width="1200"
+      height="1553"
+    />
+    <div class="absolute inset-0 bg-[#0A0A0A]/78 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent pointer-events-none"></div>
+    <div class="relative max-w-2xl mx-auto text-center">
+      <p class="inline-block bg-[#E01010]/10 text-[#E01010] text-xs font-heading font-semibold uppercase tracking-widest px-3 py-1 rounded mb-5">
+        Campo Bom e Região · Oficina Mecânica
+      </p>
+      <h1 class="font-heading text-4xl md:text-5xl font-bold leading-tight mb-4 text-[#F5F5F5]">
+        Troca de Óleo em Campo Bom<br />
+        <span class="text-[#E01010]">e Filtro de Óleo</span>
+      </h1>
+      <p class="text-[#888888] text-lg mb-8 max-w-lg mx-auto leading-relaxed">
+        Precisa trocar o óleo do carro? Na RS Motorsport você faz troca de óleo e, quando necessário, a troca do filtro — com orçamento claro pelo WhatsApp, sem surpresa.
+      </p>
+      <CTAWhatsApp
+        mensagem={WHATSAPP_MSG}
+        texto="Pedir Orçamento no WhatsApp"
+        tamanho="lg"
+        full
+      />
+      <p class="text-[#888888] text-xs mt-3">Resposta rápida · Sem compromisso</p>
+    </div>
+  </section>
+
+  <!-- O QUE ESTÁ INCLUÍDO -->
+  <section class="bg-[#141414] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-3 text-[#F5F5F5]">
+        O que inclui a troca de óleo
+      </h2>
+      <p class="text-[#888888] text-center text-sm mb-10">
+        Serviço simples, direto e feito do jeito certo
+      </p>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {[
+          {
+            titulo: "Troca de óleo",
+            desc: "Substituição do óleo do motor conforme a necessidade do seu veículo.",
+          },
+          {
+            titulo: "Troca de filtro de óleo",
+            desc: "Quando o filtro precisa ser trocado, a equipe orienta e inclui no orçamento — conforme a necessidade do seu carro.",
+          },
+          {
+            titulo: "Orçamento no WhatsApp",
+            desc: "Você informa o modelo do carro e recebe orientação e orçamento antes de autorizar o serviço.",
+          },
+          {
+            titulo: "Atendimento transparente",
+            desc: "Explicamos o que será feito. Sem venda forçada e sem cobrança surpresa.",
+          },
+        ].map(({ titulo, desc }) => (
+          <div class="bg-[#1E1E1E] border border-white/5 rounded-lg p-5">
+            <h3 class="font-heading font-semibold text-[#F5F5F5] mb-2">{titulo}</h3>
+            <p class="text-[#888888] text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE FAZER -->
+  <section class="bg-[#0A0A0A] px-5 py-12 md:py-16">
+    <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-[0.95fr_1.05fr] md:items-center">
+      <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#141414]">
+        <img
+          src="/images/revisao/revisao-pecas.webp"
+          alt="Peças e filtros para manutenção automotiva na RS Motorsport"
+          class="h-full min-h-[280px] w-full object-cover"
+          width="900"
+          height="1100"
+          loading="lazy"
+        />
+      </div>
+      <div>
+        <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">
+          Manutenção essencial
+        </p>
+        <h2 class="mb-4 font-heading text-2xl font-bold text-[#F5F5F5] md:text-3xl">
+          Por que a troca de óleo e filtro importa?
+        </h2>
+        <p class="mb-6 text-[#888888] leading-relaxed">
+          O óleo e o filtro protegem o motor no dia a dia. Manter essa troca em dia ajuda a evitar desgaste prematuro, falhas e gastos maiores depois.
+        </p>
+        <ul class="space-y-3">
+          {[
+            "Ajuda a proteger o motor no uso diário",
+            "Mantém a lubrificação em condições adequadas",
+            "Reduz risco de problemas por manutenção atrasada",
+            "Serviço rápido e fácil de agendar pelo WhatsApp",
+          ].map((item) => (
+            <li class="flex items-start gap-3 text-sm text-[#F5F5F5]/82">
+              <span class="mt-0.5 font-bold text-[#E01010]">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA MID -->
+  <section class="bg-[#E01010] px-5 py-10 md:py-14">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">
+        Quer orçamento para troca de óleo?
+      </h2>
+      <p class="text-white/80 mb-7 text-sm leading-relaxed">
+        Chame no WhatsApp, informe o modelo do seu carro e receba o orçamento. Atendimento de segunda a sexta, das 08h às 18h, em Campo Bom.
+      </p>
+      <a
+        href={`https://wa.me/555135972593?text=${encodeURIComponent(WHATSAPP_MSG)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2.5 bg-white text-[#E01010] font-heading font-semibold uppercase tracking-wide px-9 py-4 text-lg rounded transition-all duration-200 hover:bg-[#F5F5F5] active:scale-95 w-full shadow-lg"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 shrink-0">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Pedir Orçamento Agora
+      </a>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="bg-[#141414] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-10 text-[#F5F5F5]">
+        Como funciona
+      </h2>
+      <ol class="space-y-4">
+        {[
+          "Você chama no WhatsApp e informa o modelo do carro.",
+          "A equipe passa o orçamento da troca de óleo e, se for o caso, do filtro.",
+          "Você autoriza o serviço e agenda o horário.",
+          "O carro é atendido na oficina em Campo Bom.",
+        ].map((step, index) => (
+          <li class="flex items-start gap-4 rounded-xl border border-white/5 bg-[#1E1E1E] p-5">
+            <span class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#E01010] font-heading text-sm font-bold text-white">
+              {index + 1}
+            </span>
+            <p class="pt-1.5 text-sm leading-relaxed text-[#F5F5F5]/82">{step}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- POR QUE A RS -->
+  <section class="bg-[#0A0A0A] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-10 text-[#F5F5F5]">
+        Por que fazer a troca de óleo na RS Motorsport?
+      </h2>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {[
+          { titulo: "+14 anos de mercado", desc: "Oficina mecânica consolidada em Campo Bom e região." },
+          { titulo: "Nacionais e importados", desc: "Atendimento para diferentes marcas e modelos." },
+          { titulo: "Orçamento antes do serviço", desc: "Você sabe o valor antes de autorizar a troca." },
+          { titulo: "Localização fácil", desc: "R. Emilio Pedro Goedtel, 75 — Bairro Metzler, Campo Bom/RS." },
+        ].map(({ titulo, desc }) => (
+          <div class="rounded-lg border border-white/5 bg-[#141414] p-5">
+            <h3 class="font-heading font-semibold text-[#F5F5F5] mb-1">{titulo}</h3>
+            <p class="text-[#888888] text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="bg-[#141414] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-2 text-[#F5F5F5]">
+        O que dizem nossos clientes
+      </h2>
+      <p class="text-[#888888] text-center text-sm mb-10">Mais de 14 anos servindo Campo Bom e região</p>
+      <div class="space-y-4">
+        {[
+          {
+            nome: "Eduardo Alves Dias",
+            texto:
+              "Oficina especializada, pessoal muito gente boa! Sempre te explicam tudo que será necessário fazer, sem forçar nenhum serviço, recomendo!",
+            cargo: "Cliente verificado · Google",
+          },
+          {
+            nome: "Ismael Rodrigues",
+            texto: "Mecânica bem organizada, responsável mecânicos de extrema confiança.",
+            cargo: "Cliente verificado · Google",
+          },
+          {
+            nome: "Rogério Macieski",
+            texto: "Extremamente profissionais e qualificados.",
+            cargo: "Cliente verificado · Google",
+          },
+        ].map(({ nome, texto, cargo }) => (
+          <div class="bg-[#1E1E1E] border border-white/5 rounded-xl p-6">
+            <div class="flex gap-1 mb-3">
+              {Array(5)
+                .fill(0)
+                .map(() => <span class="text-[#E01010] text-sm">★</span>)}
+            </div>
+            <p class="text-[#F5F5F5]/80 text-sm leading-relaxed mb-4">"{texto}"</p>
+            <div>
+              <p class="font-heading font-semibold text-[#F5F5F5] text-sm">{nome}</p>
+              <p class="text-[#888888] text-xs">{cargo}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section class="bg-[#0A0A0A] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-3 text-[#F5F5F5]">
+        Troca de óleo em Campo Bom
+      </h2>
+      <p class="text-[#888888] text-center text-sm mb-10">
+        Venha até a RS Motorsport ou peça orçamento pelo WhatsApp
+      </p>
+      <div class="bg-[#141414] border border-white/5 rounded-xl overflow-hidden">
+        <iframe
+          src="https://maps.google.com/maps?q=-29.6728914,-51.0601064&hl=pt-BR&z=16&output=embed"
+          width="100%"
+          height="200"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full"
+          title="Localização RS Motorsport — troca de óleo em Campo Bom"
+        ></iframe>
+        <div class="p-5 space-y-3">
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=-29.6728914,-51.0601064"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-start gap-3 group"
+          >
+            <span class="text-[#E01010] text-lg shrink-0">📍</span>
+            <div>
+              <p class="font-heading font-semibold text-[#F5F5F5] group-hover:text-[#E01010] transition-colors">
+                Endereço — Como Chegar
+              </p>
+              <p class="text-[#888888] text-sm">
+                R. Emilio Pedro Goedtel, 75 — Bairro Metzler<br />
+                Campo Bom / RS — CEP 93717-145
+              </p>
+              <p class="text-[#E01010] text-xs mt-1 font-semibold">Toque para abrir o Maps →</p>
+            </div>
+          </a>
+          <div class="flex items-start gap-3">
+            <span class="text-[#E01010] text-lg shrink-0">🕐</span>
+            <div>
+              <p class="font-heading font-semibold text-[#F5F5F5]">Horário de Funcionamento</p>
+              <p class="text-[#888888] text-sm">Segunda a Sexta — 08h às 18h</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-[#141414] px-5 py-12 md:py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-10 text-[#F5F5F5]">
+        Perguntas frequentes
+      </h2>
+      <div class="space-y-3">
+        {[
+          {
+            question: "Vocês fazem troca de óleo e filtro?",
+            answer:
+              "Sim. Fazemos troca de óleo e também troca de filtro de óleo, quando necessário. O orçamento é feito pelo WhatsApp conforme o modelo do veículo.",
+          },
+          {
+            question: "O filtro sempre precisa ser trocado junto?",
+            answer:
+              "Não sempre. A necessidade do filtro depende do veículo e da manutenção. A equipe avalia e inclui no orçamento só o que for preciso.",
+          },
+          {
+            question: "Preciso levar o óleo e o filtro?",
+            answer:
+              "Não necessariamente. Chame no WhatsApp, informe o modelo do carro e a equipe orienta a melhor forma de fazer o serviço.",
+          },
+          {
+            question: "Tem preço fixo na página?",
+            answer:
+              "Não. O valor depende do veículo. Você recebe o orçamento pelo WhatsApp antes de autorizar o serviço.",
+          },
+          {
+            question: "Atendem Campo Bom e região?",
+            answer:
+              "Sim. A oficina fica em Campo Bom e atende também clientes de Sapiranga, Novo Hamburgo, Estância Velha e região.",
+          },
+        ].map(({ question, answer }) => (
+          <details class="group rounded-xl border border-white/5 bg-[#1E1E1E] p-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-base font-bold text-[#F5F5F5]">
+              {question}
+              <span class="text-2xl leading-none text-[#E01010] transition-transform duration-200 group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-[#888888]">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-[#E01010] px-5 py-12 md:py-16">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">
+        Pronto para trocar o óleo do seu carro?
+      </h2>
+      <p class="text-white/80 mb-7 text-sm leading-relaxed">
+        Fale com a RS Motorsport no WhatsApp e peça o orçamento da troca de óleo — e do filtro, se for necessário — em Campo Bom.
+      </p>
+      <a
+        href={`https://wa.me/555135972593?text=${encodeURIComponent(WHATSAPP_MSG)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2.5 bg-white text-[#E01010] font-heading font-semibold uppercase tracking-wide px-9 py-4 text-lg rounded transition-all duration-200 hover:bg-[#F5F5F5] active:scale-95 w-full shadow-lg"
+      >
+        Pedir Orçamento no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0A0A0A] border-t border-white/5 px-5 py-6 text-center">
+    <p class="text-[#888888] text-xs">
+      © {new Date().getFullYear()} RS Motorsport — Troca de óleo em Campo Bom/RS<br />
+      <a
+        href="https://www.google.com/maps/dir/?api=1&destination=-29.6728914,-51.0601064"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-[#E01010] transition-colors"
+      >
+        R. Emilio Pedro Goedtel, 75 — Campo Bom/RS
+      </a>
+    </p>
+  </footer>
+</LayoutLP>
