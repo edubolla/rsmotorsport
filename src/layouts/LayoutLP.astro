@@ -6,12 +6,15 @@ interface Props {
   title: string
   description: string
   canonical?: string
+  /** Páginas só para Ads (ex.: variantes AB) não devem indexar no orgânico. */
+  noindex?: boolean
 }
 
-const { title, description, canonical } = Astro.props
+const { title, description, canonical, noindex = false } = Astro.props
 const rawPath = Astro.url.pathname
 const normalizedPath = rawPath.endsWith('/') ? rawPath : rawPath + '/'
 const canonicalURL = canonical ?? new URL(normalizedPath, Astro.site).toString()
+const robotsContent = noindex ? "noindex, nofollow" : "index, follow"
 ---
 
 <!doctype html>
@@ -21,13 +24,18 @@ const canonicalURL = canonical ?? new URL(normalizedPath, Astro.site).toString()
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={robotsContent} />
+    <meta name="googlebot" content={robotsContent} />
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="RS Motorsport" />
+    <meta property="og:image" content="https://rsmotorsport.com.br/images/home/hero-bg.webp" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -87,6 +95,8 @@ const canonicalURL = canonical ?? new URL(normalizedPath, Astro.site).toString()
         else if (path.indexOf('/lp/performance') !== -1) cat = 'lp_performance';
         else if (path.indexOf('/lp/lavagem') !== -1)  cat = 'lp_lavagem';
         else if (path.indexOf('/lp/importados') !== -1)  cat = 'lp_importados';
+        else if (path.indexOf('/lp/troca-de-oleo') !== -1) cat = 'lp_troca_de_oleo';
+        else if (path.indexOf('/lp/oficina-mecanica') !== -1) cat = 'lp_oficina_mecanica';
 
         // Pageview com categoria
         gtag('event', 'page_view', {
