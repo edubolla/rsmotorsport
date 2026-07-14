@@ -27,7 +27,7 @@ const WHATSAPP_MSG =
     <img
       src="/images/revisao/revisao-filtro.webp"
       alt="Troca de óleo e filtro na RS Motorsport em Campo Bom"
-      class="absolute inset-0 w-full h-full object-cover object-center"
+      class="absolute inset-0 w-full h-full object-cover object-[center_28%]"
       loading="eager"
       width="1200"
       height="1553"
@@ -55,45 +55,8 @@ const WHATSAPP_MSG =
     </div>
   </section>
 
-  <!-- O QUE ESTÁ INCLUÍDO -->
-  <section class="bg-[#141414] px-5 py-12 md:py-16">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-3 text-[#F5F5F5]">
-        O que inclui a troca de óleo
-      </h2>
-      <p class="text-[#888888] text-center text-sm mb-10">
-        Serviço simples, direto e feito do jeito certo
-      </p>
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {[
-          {
-            titulo: "Troca de óleo",
-            desc: "Substituição do óleo do motor conforme a necessidade do seu veículo.",
-          },
-          {
-            titulo: "Troca de filtro de óleo",
-            desc: "Quando o filtro precisa ser trocado, a equipe orienta e inclui no orçamento — conforme a necessidade do seu carro.",
-          },
-          {
-            titulo: "Orçamento no WhatsApp",
-            desc: "Você informa o modelo do carro e recebe orientação e orçamento antes de autorizar o serviço.",
-          },
-          {
-            titulo: "Atendimento transparente",
-            desc: "Explicamos o que será feito. Sem venda forçada e sem cobrança surpresa.",
-          },
-        ].map(({ titulo, desc }) => (
-          <div class="bg-[#1E1E1E] border border-white/5 rounded-lg p-5">
-            <h3 class="font-heading font-semibold text-[#F5F5F5] mb-2">{titulo}</h3>
-            <p class="text-[#888888] text-sm leading-relaxed">{desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- POR QUE FAZER -->
-  <section class="bg-[#0A0A0A] px-5 py-12 md:py-16">
+  <section class="bg-[#141414] px-5 py-12 md:py-16">
     <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-[0.95fr_1.05fr] md:items-center">
       <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#141414]">
         <img
