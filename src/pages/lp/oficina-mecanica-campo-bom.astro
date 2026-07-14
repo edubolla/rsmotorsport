@@ -4,36 +4,72 @@ import "../../styles/global.css"
 interface Props {
   variant?: "a" | "b"
   pagePath?: string
+  title?: string
+  description?: string
 }
 
-const { variant, pagePath = "/lp/oficina-mecanica-campo-bom/" } = Astro.props
+const { variant, pagePath = "/lp/oficina-mecanica-campo-bom/", title, description } = Astro.props
 const WHATSAPP_NUMBER = "555135972593"
 const SITE_URL = "https://rsmotorsport.com.br"
 const PAGE_PATH = pagePath
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`
-const PAGE_TITLE = "Oficina Mecânica em Campo Bom | RS Motorsport"
+const PAGE_TITLE = title ?? "Oficina Mecânica em Campo Bom | RS Motorsport"
 const PAGE_DESCRIPTION =
+  description ??
   "Oficina mecânica em Campo Bom com diagnóstico claro, orçamento transparente e atendimento via WhatsApp. Revisão, freios, suspensão, motor e injeção eletrônica."
 
 const heroCopy = {
   default: {
+    badge: "Oficina mecânica em Campo Bom / RS",
     headline: "Seu carro está com problema? Entenda o melhor caminho antes de autorizar qualquer serviço.",
+    headlineSupport: "",
     subheadline:
       "Atendimento claro, orçamento transparente e serviço autorizado por você. Oficina mecânica em Campo Bom para quem busca confiança de verdade.",
+    servicesIntro:
+      "Atendimento para quem procura mecânico em Campo Bom, revisão automotiva, diagnóstico de falhas e manutenção com explicação clara.",
   },
   a: {
-    headline: "Seu carro está com problema? Entenda o que será feito antes de autorizar o serviço.",
+    badge: "RS Motorsport · Oficina mecânica em Campo Bom / RS",
+    headline: "Oficina Mecânica em Campo Bom",
+    headlineSupport: "Diagnóstico claro, orçamento transparente e mecânico de confiança.",
     subheadline:
-      "Atendimento transparente, avaliação técnica quando necessária e orçamento explicado antes da execução. Oficina mecânica em Campo Bom para quem quer resolver o problema com confiança.",
+      "Procura uma oficina mecânica perto de você? Na RS Motorsport você entende o que será feito antes de autorizar qualquer serviço. Atendemos Campo Bom, Sapiranga, Novo Hamburgo e região.",
+    servicesIntro:
+      "Serviços de oficina mecânica em Campo Bom para quem busca mecânico de confiança: diagnóstico automotivo, revisão preventiva, freios, suspensão, motor e injeção eletrônica.",
   },
   b: {
+    badge: "Oficina mecânica em Campo Bom / RS",
     headline: "Seu carro está com problema? Tenha clareza antes de aprovar qualquer reparo.",
+    headlineSupport: "",
     subheadline:
       "Atendimento transparente, avaliação técnica quando necessária e orçamento explicado antes da execução. Oficina mecânica em Campo Bom para quem quer resolver o problema com confiança.",
+    servicesIntro:
+      "Atendimento para quem procura mecânico em Campo Bom, revisão automotiva, diagnóstico de falhas e manutenção com explicação clara.",
   },
 }
 
 const currentHeroCopy = variant ? heroCopy[variant] : heroCopy.default
+const isVariantA = variant === "a"
+const pageCategory = `lp_oficina_mecanica_campo_bom${variant ? `_${variant}` : ""}`
+
+const depoimentos = [
+  {
+    nome: "Eduardo Alves Dias",
+    texto:
+      "Oficina especializada, pessoal muito gente boa! Sempre te explicam tudo que será necessário fazer, sem forçar nenhum serviço, recomendo!",
+    cargo: "Cliente verificado · Google",
+  },
+  {
+    nome: "Ismael Rodrigues",
+    texto: "Mecânica bem organizada, responsável mecânicos de extrema confiança.",
+    cargo: "Cliente verificado · Google",
+  },
+  {
+    nome: "Rogério Macieski",
+    texto: "Extremamente profissionais e qualificados.",
+    cargo: "Cliente verificado · Google",
+  },
+]
 
 const BUSINESS_NAME = "RS Motorsport"
 const ADDRESS = "R. Emilio Pedro Goedtel, 75 - Bairro Metzler, Campo Bom / RS - CEP 93717-145"
@@ -43,8 +79,9 @@ const COORDINATES = {
   longitude: -51.0601064,
 }
 
-const whatsappMessage =
-  "Olá! Vim pelo site e preciso de uma oficina mecânica em Campo Bom. Quero entender o que pode estar acontecendo com meu carro."
+const whatsappMessage = isVariantA
+  ? "Olá! Vim pelo Google e procuro uma oficina mecânica em Campo Bom. Quero orientação sobre o que pode estar acontecendo com meu carro."
+  : "Olá! Vim pelo site e preciso de uma oficina mecânica em Campo Bom. Quero entender o que pode estar acontecendo com meu carro."
 const reviewMessage =
   "Olá! Quero agendar uma revisão preventiva na RS Motorsport em Campo Bom."
 
@@ -282,10 +319,15 @@ const faqSchema = {
         <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.05fr_0.95fr] md:items-center">
           <div>
             <p class="mb-5 inline-block rounded bg-[#E01010]/10 px-3 py-1 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">
-              Oficina mecânica em Campo Bom / RS
+              {currentHeroCopy.badge}
             </p>
             <h1 class="mb-5 font-heading text-4xl font-bold leading-tight text-[#F5F5F5] md:text-6xl">
               {currentHeroCopy.headline}
+              {currentHeroCopy.headlineSupport && (
+                <span class="mt-3 block text-2xl font-semibold leading-tight text-[#F5F5F5]/78 md:text-3xl">
+                  {currentHeroCopy.headlineSupport}
+                </span>
+              )}
             </h1>
             <p class="mb-8 max-w-xl text-lg leading-relaxed text-[#F5F5F5]/78 md:text-xl">
               {currentHeroCopy.subheadline}
@@ -299,10 +341,10 @@ const faqSchema = {
                 data-gtm-event="btn_whatsapp_hero"
                 data-cta-position="hero"
                 data-cta-id="oficina_hero"
-                aria-label="Chamar no WhatsApp"
+                aria-label={isVariantA ? "Falar com a oficina mecânica no WhatsApp" : "Chamar no WhatsApp"}
                 class="inline-flex min-h-12 items-center justify-center rounded bg-[#E01010] px-8 py-4 font-heading text-base font-semibold uppercase tracking-wide text-white shadow-lg shadow-red-950/30 transition-all duration-200 hover:bg-[#B50D0D] active:scale-95"
               >
-                Chamar no WhatsApp
+                {isVariantA ? "Falar com a oficina no WhatsApp" : "Chamar no WhatsApp"}
               </a>
               <a
                 id="cta-ver-servicos"
@@ -319,26 +361,65 @@ const faqSchema = {
           </div>
 
           <aside class="rounded-2xl border border-white/10 bg-[#141414]/90 p-5 shadow-2xl shadow-black/30 md:p-7">
-            <p class="mb-4 font-heading text-sm font-semibold uppercase tracking-widest text-[#E01010]">
-              Para sintomas comuns
-            </p>
-            <div class="grid gap-3">
-              {[
-                "Luz da injeção acesa",
-                "Carro fazendo barulho",
-                "Falha ao acelerar",
-                "Vibração ou instabilidade",
-                "Consumo acima do normal",
-              ].map((symptom) => (
-                <div class="flex items-center gap-3 rounded-lg border border-white/5 bg-[#1E1E1E] p-3">
-                  <span class="h-2.5 w-2.5 rounded-full bg-[#E01010]"></span>
-                  <span class="text-sm text-[#F5F5F5]/82">{symptom}</span>
+            {isVariantA ? (
+              <>
+                <p class="mb-4 font-heading text-sm font-semibold uppercase tracking-widest text-[#E01010]">
+                  Oficina mecânica em Campo Bom
+                </p>
+                <div class="space-y-4">
+                  <div class="rounded-lg border border-white/5 bg-[#1E1E1E] p-4">
+                    <p class="mb-1 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Endereço</p>
+                    <p class="text-sm leading-relaxed text-[#F5F5F5]/82">{ADDRESS}</p>
+                  </div>
+                  <div class="rounded-lg border border-white/5 bg-[#1E1E1E] p-4">
+                    <p class="mb-1 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Horário</p>
+                    <p class="text-sm text-[#F5F5F5]/82">Segunda a sexta, das 08h às 18h</p>
+                  </div>
+                  <div class="rounded-lg border border-white/5 bg-[#1E1E1E] p-4">
+                    <p class="mb-1 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Atendemos</p>
+                    <p class="text-sm text-[#F5F5F5]/82">Campo Bom, Sapiranga, Novo Hamburgo, Estância Velha e região</p>
+                  </div>
+                  <div class="flex items-center gap-3 rounded-lg border border-[#E01010]/20 bg-[#E01010]/5 p-4">
+                    <span class="font-display text-3xl leading-none text-[#E01010]">14+</span>
+                    <p class="text-sm text-[#F5F5F5]/82">anos de experiência como oficina mecânica na região</p>
+                  </div>
                 </div>
-              ))}
-            </div>
-            <p class="mt-5 text-sm leading-relaxed text-[#888888]">
-              Antes de aprovar qualquer reparo, você recebe uma explicação do que foi avaliado e do caminho recomendado.
-            </p>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-gtm-event="click_rota_mapa"
+                  data-cta-position="hero"
+                  data-cta-id="rota_mapa_hero"
+                  class="mt-5 inline-flex text-sm font-semibold text-[#E01010] transition-colors hover:text-[#B50D0D]"
+                >
+                  Ver no mapa →
+                </a>
+              </>
+            ) : (
+              <>
+                <p class="mb-4 font-heading text-sm font-semibold uppercase tracking-widest text-[#E01010]">
+                  Para sintomas comuns
+                </p>
+                <div class="grid gap-3">
+                  {[
+                    "Luz da injeção acesa",
+                    "Carro fazendo barulho",
+                    "Falha ao acelerar",
+                    "Vibração ou instabilidade",
+                    "Consumo acima do normal",
+                  ].map((symptom) => (
+                    <div class="flex items-center gap-3 rounded-lg border border-white/5 bg-[#1E1E1E] p-3">
+                      <span class="h-2.5 w-2.5 rounded-full bg-[#E01010]"></span>
+                      <span class="text-sm text-[#F5F5F5]/82">{symptom}</span>
+                    </div>
+                  ))}
+                </div>
+                <p class="mt-5 text-sm leading-relaxed text-[#888888]">
+                  Antes de aprovar qualquer reparo, você recebe uma explicação do que foi avaliado e do caminho recomendado.
+                </p>
+              </>
+            )}
           </aside>
         </div>
       </section>
@@ -349,7 +430,11 @@ const faqSchema = {
             <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">
               Oficina sem surpresa
             </p>
-            <h2 class="text-3xl font-bold text-[#F5F5F5] md:text-4xl">Você já passou por isso em alguma oficina?</h2>
+            <h2 class="text-3xl font-bold text-[#F5F5F5] md:text-4xl">
+              {isVariantA
+                ? "Procurando oficina mecânica em Campo Bom sem surpresa?"
+                : "Você já passou por isso em alguma oficina?"}
+            </h2>
           </div>
           <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
             {pains.map((pain) => (
@@ -403,10 +488,10 @@ const faqSchema = {
               data-gtm-event="btn_whatsapp_solucao"
               data-cta-position="solucao"
               data-cta-id="oficina_solucao"
-              aria-label="Chamar a RS Motorsport no WhatsApp para entender o problema do carro"
+              aria-label={isVariantA ? "Falar com a oficina mecânica no WhatsApp" : "Chamar a RS Motorsport no WhatsApp para entender o problema do carro"}
               class="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded bg-[#E01010] px-8 py-4 font-heading text-base font-semibold uppercase tracking-wide text-white shadow-lg shadow-red-950/30 transition-all duration-200 hover:bg-[#B50D0D] active:scale-95 sm:w-auto"
             >
-              Chamar no WhatsApp
+              {isVariantA ? "Falar com a oficina no WhatsApp" : "Chamar no WhatsApp"}
             </a>
           </div>
         </div>
@@ -416,9 +501,13 @@ const faqSchema = {
         <div class="mx-auto max-w-6xl">
           <div class="mb-10 max-w-2xl">
             <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Manutenção automotiva</p>
-            <h2 class="mb-4 text-3xl font-bold text-[#F5F5F5] md:text-4xl">Serviços para manter seu carro seguro e confiável</h2>
+            <h2 class="mb-4 text-3xl font-bold text-[#F5F5F5] md:text-4xl">
+              {isVariantA
+                ? "Serviços da nossa oficina mecânica em Campo Bom"
+                : "Serviços para manter seu carro seguro e confiável"}
+            </h2>
             <p class="text-base leading-relaxed text-[#888888]">
-              Atendimento para quem procura mecânico em Campo Bom, revisão automotiva, diagnóstico de falhas e manutenção com explicação clara.
+              {currentHeroCopy.servicesIntro}
             </p>
           </div>
           <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -436,7 +525,9 @@ const faqSchema = {
           <div class="rounded-2xl border border-white/10 bg-[#141414] p-7 md:p-10">
             <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Confiança primeiro</p>
             <h2 class="mb-5 text-3xl font-bold text-[#F5F5F5] md:text-4xl">
-              Uma oficina para quem procura confiança, não surpresa.
+              {isVariantA
+                ? "Uma oficina mecânica em Campo Bom para quem procura confiança, não surpresa."
+                : "Uma oficina para quem procura confiança, não surpresa."}
             </h2>
             <p class="text-lg leading-relaxed text-[#F5F5F5]/78">
               Sabemos que deixar o carro em uma oficina exige confiança. Por isso, prezamos por clareza no atendimento, diagnóstico responsável e aprovação do cliente antes da execução do serviço.
@@ -470,23 +561,27 @@ const faqSchema = {
         <div class="mx-auto max-w-3xl text-center">
           <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Rotina segura</p>
           <h2 class="mb-5 text-3xl font-bold text-[#F5F5F5] md:text-4xl">
-            A segurança da sua rotina começa pela manutenção do seu carro.
+            {isVariantA
+              ? "Sua oficina mecânica de confiança em Campo Bom começa pela manutenção certa."
+              : "A segurança da sua rotina começa pela manutenção do seu carro."}
           </h2>
           <p class="mb-8 text-lg leading-relaxed text-[#F5F5F5]/78">
-            Seja para trabalhar, levar a família ou viajar, seu carro precisa estar confiável. Uma revisão preventiva pode evitar problemas maiores, gastos inesperados e riscos no trânsito.
+            {isVariantA
+              ? "Seja para trabalhar, levar a família ou viajar, seu carro precisa de uma oficina mecânica de confiança. Na RS Motorsport, você entende o que será feito antes de autorizar qualquer serviço."
+              : "Seja para trabalhar, levar a família ou viajar, seu carro precisa estar confiável. Uma revisão preventiva pode evitar problemas maiores, gastos inesperados e riscos no trânsito."}
           </p>
           <a
             id="cta-whatsapp-revisao"
-            href={whatsappUrl(reviewMessage)}
+            href={whatsappUrl(isVariantA ? whatsappMessage : reviewMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            data-gtm-event="btn_whatsapp_revisao"
+            data-gtm-event={isVariantA ? "btn_whatsapp_seguranca" : "btn_whatsapp_revisao"}
             data-cta-position="seguranca"
-            data-cta-id="agendar_revisao"
-            aria-label="Agendar revisão pelo WhatsApp"
+            data-cta-id={isVariantA ? "oficina_seguranca" : "agendar_revisao"}
+            aria-label={isVariantA ? "Falar com a oficina mecânica no WhatsApp" : "Agendar revisão pelo WhatsApp"}
             class="inline-flex min-h-12 w-full items-center justify-center rounded bg-[#E01010] px-8 py-4 font-heading text-base font-semibold uppercase tracking-wide text-white shadow-lg shadow-red-950/30 transition-all duration-200 hover:bg-[#B50D0D] active:scale-95 sm:w-auto"
           >
-            Agendar revisão pelo WhatsApp
+            {isVariantA ? "Falar com a oficina no WhatsApp" : "Agendar revisão pelo WhatsApp"}
           </a>
         </div>
       </section>
@@ -530,13 +625,92 @@ const faqSchema = {
         </div>
       </section>
 
+      {isVariantA && (
+        <section class="bg-[#141414] px-5 py-14 md:py-20">
+          <div class="mx-auto max-w-3xl">
+            <div class="mb-10 text-center">
+              <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Prova social</p>
+              <h2 class="text-3xl font-bold text-[#F5F5F5] md:text-4xl">O que dizem nossos clientes no Google</h2>
+              <p class="mt-3 text-sm text-[#888888]">Mais de 14 anos como oficina mecânica em Campo Bom e região</p>
+            </div>
+            <div class="space-y-4">
+              {depoimentos.map(({ nome, texto, cargo }) => (
+                <article class="rounded-xl border border-white/5 bg-[#1E1E1E] p-6">
+                  <div class="mb-3 flex gap-1">
+                    {Array(5).fill(0).map(() => <span class="text-sm text-[#E01010]">★</span>)}
+                  </div>
+                  <p class="mb-4 text-sm leading-relaxed text-[#F5F5F5]/80">"{texto}"</p>
+                  <div>
+                    <p class="font-heading text-sm font-semibold text-[#F5F5F5]">{nome}</p>
+                    <p class="text-xs text-[#888888]">{cargo}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {isVariantA && (
+        <section id="localizacao" class="bg-[#0A0A0A] px-5 py-14 md:py-20">
+          <div class="mx-auto max-w-3xl">
+            <div class="mb-10 text-center">
+              <p class="mb-3 font-heading text-xs font-semibold uppercase tracking-widest text-[#E01010]">Localização</p>
+              <h2 class="text-3xl font-bold text-[#F5F5F5] md:text-4xl">Oficina mecânica em Campo Bom — como chegar</h2>
+            </div>
+            <div class="overflow-hidden rounded-xl border border-white/5 bg-[#141414]">
+              <iframe
+                src="https://maps.google.com/maps?q=-29.6728914,-51.0601064&hl=pt-BR&z=16&output=embed"
+                width="100%"
+                height="220"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="w-full"
+                title="Localização da oficina mecânica RS Motorsport em Campo Bom"
+              ></iframe>
+              <div class="space-y-4 p-5">
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-gtm-event="click_rota_mapa"
+                  data-cta-position="localizacao"
+                  data-cta-id="rota_mapa_secao"
+                  class="group flex items-start gap-3"
+                >
+                  <span class="shrink-0 text-lg text-[#E01010]">📍</span>
+                  <div>
+                    <p class="font-heading font-semibold text-[#F5F5F5] transition-colors group-hover:text-[#E01010]">Endereço — Como chegar</p>
+                    <p class="text-sm text-[#888888]">{ADDRESS}</p>
+                    <p class="mt-1 text-xs font-semibold text-[#E01010]">Toque para abrir o Maps →</p>
+                  </div>
+                </a>
+                <div class="flex items-start gap-3">
+                  <span class="shrink-0 text-lg text-[#E01010]">🕐</span>
+                  <div>
+                    <p class="font-heading font-semibold text-[#F5F5F5]">Horário de funcionamento</p>
+                    <p class="text-sm text-[#888888]">Segunda a sexta — 08h às 18h</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       <section class="bg-[#E01010] px-5 py-14 md:py-20">
         <div class="mx-auto max-w-3xl text-center">
           <h2 class="mb-4 text-3xl font-bold text-white md:text-4xl">
-            Precisa de uma oficina mecânica de confiança em Campo Bom?
+            {isVariantA
+              ? "Precisa de uma oficina mecânica em Campo Bom agora?"
+              : "Precisa de uma oficina mecânica de confiança em Campo Bom?"}
           </h2>
           <p class="mb-8 text-lg leading-relaxed text-white/82">
-            Chame a RS Motorsport no WhatsApp, explique o que está acontecendo e receba orientação sobre o melhor caminho para o seu carro.
+            {isVariantA
+              ? "Chame a RS Motorsport no WhatsApp, explique o que está acontecendo com seu carro e receba orientação de uma oficina mecânica de confiança em Campo Bom."
+              : "Chame a RS Motorsport no WhatsApp, explique o que está acontecendo e receba orientação sobre o melhor caminho para o seu carro."}
           </p>
           <a
             id="cta-whatsapp-final"
@@ -580,16 +754,14 @@ const faqSchema = {
       data-gtm-event="btn_whatsapp_sticky"
       data-cta-position="sticky_mobile"
       data-cta-id="oficina_sticky"
-      aria-label="Chamar a RS Motorsport no WhatsApp"
+      aria-label={isVariantA ? "Falar com a oficina mecânica no WhatsApp" : "Chamar a RS Motorsport no WhatsApp"}
       class="fixed bottom-4 left-4 right-4 z-50 inline-flex min-h-12 items-center justify-center rounded bg-[#E01010] px-6 py-3 font-heading text-sm font-semibold uppercase tracking-wide text-white shadow-2xl shadow-black/50 transition-all duration-200 hover:bg-[#B50D0D] active:scale-95 md:hidden"
     >
-      Chamar no WhatsApp
+      {isVariantA ? "Falar com a oficina" : "Chamar no WhatsApp"}
     </a>
 
-    <script is:inline>
+    <script is:inline define:vars={{ pageCategory }}>
       (function() {
-        var pageCategory = 'lp_oficina_mecanica_campo_bom';
-
         function sendEvent(eventName, payload) {
           var eventPayload = Object.assign({ page_category: pageCategory }, payload || {});
 
